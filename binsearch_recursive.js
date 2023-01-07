@@ -1,15 +1,15 @@
 import { strict as assert} from 'node:assert';
 
-function binarySearch(arr, target, start=0, end=arr.length-1) {
-	let mid = Math.floor((end + start)/2);
-	if (target == arr[mid]) {
+function binarySearch(sortedNumberArr, targetNumber, startIndex=0, endIndex=sortedNumberArray.length-1) {
+	let mid = Math.floor((endIndex + startIndex)/2);
+	if (targetNumber == sortedNumberArray[mid]) {
 		return mid;
-	} else if (end <= start) {
+	} else if (endIndex <= startIndex) {
 		return -1;
-	} else if (target < arr[mid]) {
-		return binarySearch(arr, target, 0, mid-1)
+	} else if (targetNumber < sortedNumberArray[mid]) {
+		return binarySearch(sortedNumberArray, targetNumber, 0, mid-1)
 	} else {
-		return binarySearch(arr, target, mid+1, end)
+		return binarySearch(sortedNumberArray, targetNumber, mid+1, endIndex)
 	}
 }
   
